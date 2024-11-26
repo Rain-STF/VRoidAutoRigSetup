@@ -1,0 +1,2 @@
+# VRoidAutoRigSetup
+UnityにインポートしたVroidのモデルに対し、Unityの機能であるAnimationRiggingのセットアップを行うスクリプトです。
