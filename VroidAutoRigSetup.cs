@@ -32,7 +32,7 @@ public class VroidAutoRigSetup : MonoBehaviour
     static GameObject legHintR;
     #endregion
 
-    // ƒƒjƒ…[ƒAƒCƒeƒ€‚ğì¬
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ã‚’ä½œæˆ
     [MenuItem("VroidRigSetup/AutoSetup")]
 
     private static void AutoRigSetup()
@@ -43,7 +43,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         }
     }
 
-    // ƒƒjƒ…[ƒAƒCƒeƒ€‚ğì¬
+    // ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‚¢ã‚¤ãƒ†ãƒ ã‚’ä½œæˆ
     [MenuItem("VroidRigSetup/NoEffecterSetup")]
 
     private static void NoEffecterSetup()
@@ -69,34 +69,34 @@ public class VroidAutoRigSetup : MonoBehaviour
 
     static bool CanSetupCheacker()
     {
-        // İ’è‚ğƒŠƒZƒbƒg
+        // è¨­å®šã‚’ãƒªã‚»ãƒƒãƒˆ
         rigList = null;
 
-        // ‘I‘ğ‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ğæ“¾
+        // é¸æŠã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—
         selectedObject = Selection.activeGameObject;
 
         if (selectedObject == null)
         {
-            Debug.Log("ƒIƒuƒWƒFƒNƒg‚ª‘I‘ğ‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            Debug.Log("ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒé¸æŠã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
             return false;
         }
 
-        // ‘I‘ğ‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ÉRigBuilderga‚ªƒAƒ^ƒbƒ`‚³‚ê‚Ä‚¢‚é‚©
+        // é¸æŠã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«RigBuildergaãŒã‚¢ã‚¿ãƒƒãƒã•ã‚Œã¦ã„ã‚‹ã‹
         rigBuilder = selectedObject.GetComponent<RigBuilder>();
         if (rigBuilder == null || rigBuilder.layers == null)
         {
-            Debug.Log("RigBuilder‚ªƒZƒbƒgƒAƒbƒv‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB");
+            Debug.Log("RigBuilderãŒã‚»ãƒƒãƒˆã‚¢ãƒƒãƒ—ã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚");
             return false;
         }
 
-        // ‘I‘ğ‚³‚ê‚½ƒIƒuƒWƒFƒNƒg‚ÌqƒIƒuƒWƒFƒNƒg‚ÉRig‚ªƒAƒ^ƒbƒ`‚³‚ê‚Ä‚¢‚é‚©
+        // é¸æŠã•ã‚ŒãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å­ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«RigãŒã‚¢ã‚¿ãƒƒãƒã•ã‚Œã¦ã„ã‚‹ã‹
         foreach (Rig child in selectedObject.GetComponentsInChildren<Rig>())
         {
             rigList = child.gameObject;
         }
         if (rigList == null)
         {
-            Debug.Log("Rig‚ª‚ ‚è‚Ü‚¹‚ñB");
+            Debug.Log("RigãŒã‚ã‚Šã¾ã›ã‚“ã€‚");
             return false;
         }
         return true;
@@ -115,7 +115,7 @@ public class VroidAutoRigSetup : MonoBehaviour
 
     static async Task SetObj()
     {
-        // ã”¼g‚ÌRig
+        // ä¸ŠåŠèº«ã®Rig
         hipRig = new GameObject("HipRig");
         hipRig.transform.parent = rigList.transform;
 
@@ -134,7 +134,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         armHintR = new GameObject("ArmHintR");
         armHintR.transform.parent = arm.transform;
 
-        // w‚ÌRig
+        // æŒ‡ã®Rig
         oyaRigL = new GameObject("OyaL");
         oyaRigL.transform.parent = armRigL.transform;
         hitoRigL = new GameObject("HitoL");
@@ -157,7 +157,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         koRigR = new GameObject("KoR");
         koRigR.transform.parent = armRigR.transform;
 
-        // ‰º”¼g‚ÌRig
+        // ä¸‹åŠèº«ã®Rig
         GameObject leg = new GameObject("Leg");
         leg.transform.parent = hipRig.transform;
         legRigL = new GameObject("LegRigL");
@@ -173,33 +173,33 @@ public class VroidAutoRigSetup : MonoBehaviour
 
     static void SetIkRig()
     {
-        // Hip‚ÌRig‚ğİ’è
+        // Hipã®Rigã‚’è¨­å®š
         Transform hipObj = selectedObject.transform.GetChild(0).GetChild(0);
         hipRig.transform.position = hipObj.position;
         PosRigSet(hipObj, hipRig);
         RotRigSet(hipObj, hipRig);
 
-        // Spine‚ÌRig‚ğİ’è
-        Transform spineObj = hipObj.GetChild(0);
-        spineRig.transform.SetPositionAndRotation(spineObj.position, spineObj.rotation);
-        RotRigSet(spineObj, spineRig);
+        // Spineã®Rigã‚’è¨­å®š
+        Transform spineObj = hipObj.GetChild(0).GetChild(0).GetChild(0);
+        spineRig.transform.position = spineObj.position;
+        SpineRigSet(hipObj.GetChild(0), spineRig);
 
-        // Aim‚ÌRig‚ğİ’è
-        Transform headObj = spineObj.GetChild(0).GetChild(0).GetChild(2).GetChild(0);
+        // Aimã®Rigã‚’è¨­å®š
+        Transform headObj = spineObj.GetChild(2).GetChild(0);
         aimRig.transform.position = new Vector3(headObj.position.x, headObj.position.y, headObj.position.z + 1f);
         AimRigSet(headObj, aimRig);
 
-        // Arm‚ÌRig‚Ìİ’è
-        Transform armObjL = spineObj.GetChild(0).GetChild(0).GetChild(3).GetChild(0);
+        // Armã®Rigã®è¨­å®š
+        Transform armObjL = spineObj.GetChild(3).GetChild(0);
         armRigL.transform.position = armObjL.GetChild(0).GetChild(0).position;
         armHintL.transform.position = armObjL.GetChild(0).position;
         TwoRigSet(armObjL, armRigL, armHintL);
-        Transform armObjR = spineObj.GetChild(0).GetChild(0).GetChild(4).GetChild(0);
+        Transform armObjR = spineObj.GetChild(4).GetChild(0);
         armRigR.transform.position = armObjR.GetChild(0).GetChild(0).position;
         armHintR.transform.position = armObjR.GetChild(0).position;
         TwoRigSet(armObjR, armRigR, armHintR);
 
-        // Finger‚ÌRig‚Ìİ’è
+        // Fingerã®Rigã®è¨­å®š
         Transform oyaObjL = armObjL.GetChild(0).GetChild(0).GetChild(4);
         oyaRigL.transform.position = oyaObjL.GetChild(0).GetChild(0).position;
         OyaRigSet(oyaObjL, oyaRigL);
@@ -232,7 +232,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         koRigR.transform.position = koObjR.GetChild(0).GetChild(0).position;
         KoRigSet(koObjR, koRigR);
 
-        // Leg‚ÌRig‚Ìİ’è
+        // Legã®Rigã®è¨­å®š
         Transform legLObj = hipObj.transform.GetChild(1);
         legRigL.transform.position = legLObj.GetChild(0).GetChild(legLObj.transform.GetChild(0).childCount - 1).position;
         legHintL.transform.position = new Vector3(legLObj.GetChild(0).position.x, legLObj.GetChild(0).position.y, legLObj.GetChild(0).position.z + 1f);
@@ -243,7 +243,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         TwoRigSet(legRObj, legRigR, legHintR);
     }
 
-    // MultiPositionConstraint‚Ìİ’è
+    // MultiPositionConstraintã®è¨­å®š
     static void PosRigSet(Transform constrainedObj, GameObject sourceObj)
     {
         MultiPositionConstraint rigPos = sourceObj.AddComponent<MultiPositionConstraint>();
@@ -255,7 +255,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         rigPos.data.sourceObjects = posSourceObjects;
     }
 
-    // MultiRotationConstraint‚Ìİ’è
+    // MultiRotationConstraintã®è¨­å®š
     static void RotRigSet(Transform constrainedObj, GameObject sourceObj)
     {
         MultiRotationConstraint rigRot = sourceObj.AddComponent<MultiRotationConstraint>();
@@ -267,7 +267,28 @@ public class VroidAutoRigSetup : MonoBehaviour
         rigRot.data.sourceObjects = rotSourceObjects;
     }
 
-    // MultiAimConstraint‚Ìİ’è
+    // è…°ã®è¨­å®š
+    static void SpineRigSet(Transform constrainedObj, GameObject sourceObj)
+    {
+        TwistCorrection rigTwi = sourceObj.AddComponent<TwistCorrection>();
+        rigTwi.data.sourceObject = sourceObj.transform;
+
+        var rigTwistNodes = rigTwi.data.twistNodes;
+        rigTwistNodes.Clear();
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj, 0.33333f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 0.33333f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 0.33333f));
+        rigTwi.data.twistNodes = rigTwistNodes;
+        rigTwi.data.twistAxis = TwistCorrectionData.Axis.Y;
+
+        ChainIKConstraint rigChain = sourceObj.AddComponent<ChainIKConstraint>();
+        rigChain.data.root = constrainedObj;
+        rigChain.data.tip = constrainedObj.GetChild(0).GetChild(0);
+
+        rigChain.data.target = sourceObj.transform;
+    }
+
+    // MultiAimConstraintã®è¨­å®š
     static void AimRigSet(Transform constrainedObj, GameObject sourceObj)
     {
         MultiAimConstraint rigAim = sourceObj.AddComponent<MultiAimConstraint>();
@@ -278,7 +299,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         rigAim.data.sourceObjects = aimSourceObjects;
     }
 
-    // TwoBoneIKConstraint‚Ìİ’è
+    // TwoBoneIKConstraintã®è¨­å®š
     static void TwoRigSet(Transform constrainedObj, GameObject targetObj, GameObject hintObj)
     {
         TwoBoneIKConstraint rigTwo = targetObj.AddComponent<TwoBoneIKConstraint>();
@@ -289,7 +310,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         rigTwo.data.hint = hintObj.transform;
     }
 
-    // ew‚Ìİ’è
+    // è¦ªæŒ‡ã®è¨­å®š
     static void OyaRigSet(Transform constrainedObj, GameObject sourceObj)
     {
         TwistCorrection rigTwi = sourceObj.AddComponent<TwistCorrection>();
@@ -297,13 +318,13 @@ public class VroidAutoRigSetup : MonoBehaviour
 
         var rigTwistNodes = rigTwi.data.twistNodes;
         rigTwistNodes.Clear();
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 1f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 1f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 0.5f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 0.5f));
         rigTwi.data.twistNodes = rigTwistNodes;
         rigTwi.data.twistAxis = TwistCorrectionData.Axis.Z;
     }
 
-    // ewˆÈŠO‚Ìİ’è
+    // è¦ªæŒ‡ä»¥å¤–ã®è¨­å®š
     static void KoRigSet(Transform constrainedObj, GameObject sourceObj)
     {
         TwistCorrection rigTwi = sourceObj.AddComponent<TwistCorrection>();
@@ -311,9 +332,9 @@ public class VroidAutoRigSetup : MonoBehaviour
 
         var rigTwistNodes = rigTwi.data.twistNodes;
         rigTwistNodes.Clear();
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj, 1f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 1f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 1f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj, 0.33333f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 0.33333f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 0.33333f));
         rigTwi.data.twistNodes = rigTwistNodes;
         rigTwi.data.twistAxis = TwistCorrectionData.Axis.Z;
 
@@ -327,21 +348,21 @@ public class VroidAutoRigSetup : MonoBehaviour
         rigRot.data.constrainedZAxis = false;
     }
 
-    // Effecter‚ğ‚Â‚¯‚é
+    // Effecterã‚’ã¤ã‘ã‚‹
     static void SetUpEffecter()
     {
-        // ˆê“I‚ÈƒLƒ…[ƒu‚ğì¬‚µ‚ÄƒƒbƒVƒ…‚ğæ“¾
+        // ä¸€æ™‚çš„ãªã‚­ãƒ¥ãƒ¼ãƒ–ã‚’ä½œæˆã—ã¦ãƒ¡ãƒƒã‚·ãƒ¥ã‚’å–å¾—
         GameObject tempCube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         Mesh cube = tempCube.GetComponent<MeshFilter>().sharedMesh;
 
-        // ˆê“I‚ÈƒLƒ…[ƒu‚ğíœ
+        // ä¸€æ™‚çš„ãªã‚­ãƒ¥ãƒ¼ãƒ–ã‚’å‰Šé™¤
         DestroyImmediate(tempCube);
 
-        // ˆê“I‚ÈƒXƒtƒBƒA‚ğì¬‚µ‚ÄƒƒbƒVƒ…‚ğæ“¾
+        // ä¸€æ™‚çš„ãªã‚¹ãƒ•ã‚£ã‚¢ã‚’ä½œæˆã—ã¦ãƒ¡ãƒƒã‚·ãƒ¥ã‚’å–å¾—
         GameObject tempSphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
         Mesh sphere = tempSphere.GetComponent<MeshFilter>().sharedMesh;
 
-        // ˆê“I‚ÈƒXƒtƒBƒA‚ğíœ
+        // ä¸€æ™‚çš„ãªã‚¹ãƒ•ã‚£ã‚¢ã‚’å‰Šé™¤
         DestroyImmediate(tempSphere);
 
         ShowEffecter(hipRig, sphere, Color.green);
@@ -363,7 +384,7 @@ public class VroidAutoRigSetup : MonoBehaviour
         style.color = new Color(objColor.r, objColor.g, objColor.b, 0.5f);
         style.size = 0.1f;
 
-        // æ“¾‚µ‚½ƒLƒ…[ƒu‚ÌƒƒbƒVƒ…‚ğV‚µ‚¢ƒIƒuƒWƒFƒNƒg‚Éİ’è
+        // å–å¾—ã—ãŸã‚­ãƒ¥ãƒ¼ãƒ–ã®ãƒ¡ãƒƒã‚·ãƒ¥ã‚’æ–°ã—ã„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®š
         style.shape = mesh;
         rigBuilder.AddEffector(targetRig.transform, style);
     }
