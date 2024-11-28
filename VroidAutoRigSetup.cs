@@ -275,9 +275,9 @@ public class VroidAutoRigSetup : MonoBehaviour
 
         var rigTwistNodes = rigTwi.data.twistNodes;
         rigTwistNodes.Clear();
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj, 0.33333f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 0.33333f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 0.33333f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj, 1f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 1f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 1f));
         rigTwi.data.twistNodes = rigTwistNodes;
         rigTwi.data.twistAxis = TwistCorrectionData.Axis.Y;
 
@@ -318,8 +318,8 @@ public class VroidAutoRigSetup : MonoBehaviour
 
         var rigTwistNodes = rigTwi.data.twistNodes;
         rigTwistNodes.Clear();
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 0.5f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 0.5f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 1f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 1f));
         rigTwi.data.twistNodes = rigTwistNodes;
         rigTwi.data.twistAxis = TwistCorrectionData.Axis.Z;
     }
@@ -332,9 +332,9 @@ public class VroidAutoRigSetup : MonoBehaviour
 
         var rigTwistNodes = rigTwi.data.twistNodes;
         rigTwistNodes.Clear();
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj, 0.33333f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 0.33333f));
-        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 0.33333f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj, 1f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0), 1f));
+        rigTwistNodes.Add(new WeightedTransform(constrainedObj.GetChild(0).GetChild(0), 1f));
         rigTwi.data.twistNodes = rigTwistNodes;
         rigTwi.data.twistAxis = TwistCorrectionData.Axis.Z;
 
